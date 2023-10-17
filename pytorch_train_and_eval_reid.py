@@ -271,8 +271,25 @@ def train_and_eval(config_file):
     reference_embeddings, reference_labels, reference_loss = get_embeddings(model, reference_dataloader, loss_fn, miner, device, feature_extractor)
     test_embeddings, test_labels, test_loss = get_embeddings(model, test_dataloader, loss_fn, miner, device, feature_extractor)
 
+    # Convert query/test labels to match referene labels if necessary 
+    b1_to_b2 = {10: 74, 11: 75, 15: 79, 14: 78, 12: 76, 16: 80, 13: 77, 9: 73, 18: 82, 19: 83, 23: 87, 22: 86, 20: 84, 24: 88, 21: 85, 17: 81, 50: 114, 51: 115, 55: 119, 54: 118, 52: 116, 56: 120, 53: 117, 49: 113, 42: 106, 43: 107, 47: 111, 46: 110, 44: 108, 48: 112, 45: 109, 41: 105, 26: 90, 27: 91, 31: 95, 30: 94, 28: 92, 32: 96, 29: 93, 25: 89, 58: 122, 59: 123, 63: 127, 62: 126, 60: 124, 64: 128, 61: 125, 57: 121, 34: 98, 35: 99, 39: 103, 38: 102, 36: 100, 40: 104, 37: 101, 33: 97, 2: 66, 3: 67, 7: 71, 6: 70, 68: 68, 8: 72, 5: 69, 1: 65}
+    b2_to_b1 = {74: 10, 75: 11, 79: 15, 78: 14, 76: 12, 80: 16, 77: 13, 73: 9, 82: 18, 83: 19, 87: 23, 86: 22, 84: 20, 88: 24, 85: 21, 81: 17, 114: 50, 115: 51, 119: 55, 118: 54, 116: 52, 120: 56, 117: 53, 113: 49, 106: 42, 107: 43, 111: 47, 110: 46, 108: 44, 112: 48, 109: 45, 105: 41, 90: 26, 91: 27, 95: 31, 94: 30, 92: 28, 96: 32, 93: 29, 89: 25, 122: 58, 123: 59, 127: 63, 126: 62, 124: 60, 128: 64, 125: 61, 121: 57, 98: 34, 99: 35, 103: 39, 102: 38, 100: 36, 104: 40, 101: 37, 97: 33, 66: 2, 67: 3, 71: 7, 70: 6, 68: 68, 72: 8, 69: 5, 65: 1}
+
+    reference_data_batch = os.path.dirname(data_config['datafiles']['reference'])[-1:]
+    query_data_batch = os.path.dirname(data_config['datafiles']['query'])[-1:]
+
+    if reference_data_batch != query_data_batch and data_config['label_col'] != 'color_num':
+        if reference_data_batch > query_data_batch:
+            for i in range(len(test_labels)):
+                test_labels[i] = b1_to_b2[test_labels[i]]
+        else: 
+            for i in range(len(test_labels)):
+                test_labels[i] = b2_to_b1[test_labels[i]]
+    
     print(f'Reference (or Train) Loss: {reference_loss:.4f}')
+    print('Reference size:',reference_embeddings.shape)
     print(f'Test (or Query) Loss: {test_loss:.4f}')
+    print('Test (or Query) size:',test_embeddings.shape)
 
     results = knn_evaluation(reference_embeddings, reference_labels, test_embeddings, test_labels, 
                             eval_config['n_neighbors'], eval_config['per_class'], eval_config['conf_matrix'])
