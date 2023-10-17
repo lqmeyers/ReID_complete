@@ -11,16 +11,17 @@ train_settings:
   margin: 0.2
   print_k: 10
   save_checkpoint_freq: 50
-  gpu: 1
+  gpu: 0
   wandb_project_name: Summer_data_reid
   wandb_entity_name: meyers_luke_lab
+  wandb_dir_path: ./
   wandb_resume: False
   checkpoint_to_load: #if resuming
   wandb_run_id: #if resuming
 data_settings:
-  dataset: summer_2023_color_detect
+  dataset: summer_2023
   split_type: closed
-  fname_col: filename
+  fname_col: filepath
   label_col: color_num
   cropped: False
   crop_top:

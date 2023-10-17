@@ -106,9 +106,9 @@ def train_and_eval(config_file):
     resume_training = train_config['wandb_resume']
     #initialize wandb logging
     if resume_training == True: 
-        experiment = wandb.init(project= train_config["wandb_project_name"],entity=train_config['wandb_entity_name'],resume=True,id=train_config['wandb_run_id'])
+        experiment = wandb.init(project= train_config["wandb_project_name"],entity=train_config['wandb_entity_name'],resume=True,id=train_config['wandb_run_id'],dir=train_config['wandb_dir_path'])
     else:
-        experiment = wandb.init(project= train_config["wandb_project_name"],entity=train_config['wandb_entity_name'])
+        experiment = wandb.init(project= train_config["wandb_project_name"],entity=train_config['wandb_entity_name'],dir=train_config['wandb_dir_path'])
     
     
     if verbose:
