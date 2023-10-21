@@ -10,6 +10,7 @@ from datetime import datetime
 import gc
 import os
 import wandb
+import pickle
 
 import torch
 from transformers import ViTFeatureExtractor
@@ -58,15 +59,24 @@ def get_embeddings(model, dataloader, loss_fn, miner, device, feature_extractor=
 def knn_evaluation(train_images, train_labels, test_images, test_labels, n_neighbors, per_class=True, conf_matrix=True):
     # BUILD KNN MODEL AND PREDICT
     results = {}
-    print(f'Training kNN classifier with k={n_neighbors}')
-    my_knn = KNeighborsClassifier(n_neighbors=n_neighbors, metric='cosine')
+    print(f'Training kNN classifier with k=1')
+    my_knn = KNeighborsClassifier(n_neighbors=1, metric='cosine')
     my_knn.fit(train_images, train_labels)
     knn_pred = my_knn.predict(test_images)
     knn_acc = np.round(np.sum([1 for pred, label in zip(knn_pred, test_labels) if pred == label])/test_labels.shape[0],4)
-    print(f'{n_neighbors}NN test accuracy: {knn_acc}')
+    print(f'1NN test accuracy: {knn_acc}')
     # store results
-    results['n_neighbors'] = n_neighbors
-    results['knn'] = knn_acc
+    results['1NN_acc'] = knn_acc
+
+    print(f'Training kNN classifier with k=3')
+    my_knn = KNeighborsClassifier(n_neighbors=3, metric='cosine')
+    my_knn.fit(train_images, train_labels)
+    knn_pred = my_knn.predict(test_images)
+    knn_acc = np.round(np.sum([1 for pred, label in zip(knn_pred, test_labels) if pred == label])/test_labels.shape[0],4)
+    print(f'3NN test accuracy: {knn_acc}')
+    # store results
+    results['3NN_acc'] = knn_acc
+
     label_list = np.unique(train_labels)
     results['label_list'] = label_list
     if per_class:
@@ -249,7 +259,8 @@ def train_and_eval(config_file):
                     torch.save(model,(os.path.dirname(model_config['model_path'])+r'/checkpoints/'+str(epoch)+".pth"))
 
     stop = time.time()
-    print(f'Total train time: {(stop-start)/60}min')
+    duration = (stop-start)/60
+    print(f'Total train time: {duration}min')
 
     # evaluate on test set using KNN
     if verbose:
@@ -294,6 +305,20 @@ def train_and_eval(config_file):
     results = knn_evaluation(reference_embeddings, reference_labels, test_embeddings, test_labels, 
                             eval_config['n_neighbors'], eval_config['per_class'], eval_config['conf_matrix'])
     
+    # Add total training loss to results 
+    results['train_loss'] = running_loss
+    print(results)
+
+    # Adding other metrics to results to pass to csv
+    results['valid_loss'] = valid_loss
+    results['wandb_id'] = experiment.id
+    results['start_time'] = experiment.start_time
+    results['train_time'] = duration
+
+    # Save results to temporary file
+    with open('/home/lmeyers/ReID_complete/results.pkl','wb') as fi:
+        pickle.dump(results,fi)
+
     if model_config['model_path'] is not None:
         print('Saving model...')
         torch.save(model, model_config['model_path'])
