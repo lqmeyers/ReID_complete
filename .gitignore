@@ -1,0 +1,7 @@
+*.pth
+*.json
+*.log
+*.wandb
+*conda-environment*
+*/files/config*
+*requirements.txt
