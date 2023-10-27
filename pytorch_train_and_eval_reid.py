@@ -205,13 +205,25 @@ def train_and_eval(config_file):
     # if resuming training set epoch number
     if resume_training == True:
         epoch_range = range(train_config['num_epochs'])[most_recent_epoch:]
+        stop_epoch = 0
+
     else:
         epoch_range = range(train_config['num_epochs'])
+        stop_epoch = 0
+
+    # Initialize early stopping variables
+    best_valid_loss = float('inf')
+    valid_loss = 'Null'
+    num_epochs_no_improvement = 0
+    check_for_early_stopping = train_config['early_stopping']
+    consecutive_epochs = train_config['early_stop_consecutive_epochs']
+    stop_early = False
 
     # Train the model
     if verbose:
         print('Training model...')
     print_k = train_config['print_k']
+
     start = time.time()
     for epoch in epoch_range: 
         running_loss = 0.0
@@ -229,16 +241,23 @@ def train_and_eval(config_file):
 
             optimizer.zero_grad()
             outputs = model(images)
-            hard_pairs = miner(outputs, labels)
-            loss = loss_fn(outputs, labels, hard_pairs)
+
+            # get semi-hard triplets
+            miner = miners.TripletMarginMiner(margin=train_config['margin'], type_of_triplets="semihard", distance = CosineSimilarity())
+            miner_type = "semihard"
+            triplet_pairs = miner(outputs, labels)
+
+            #hard_pairs = miner(outputs, labels)
+            loss = loss_fn(outputs, labels, triplet_pairs)
             loss.backward()
             optimizer.step()
             running_loss += loss.item()
 
             experiment.log({
                 'train loss': loss.item(),
-                'epoch': epoch
+                'epoch': epoch,
                 #'learning rate' : lr
+                'triplet_num': torch.numel(triplet_pairs[0])
             })
 
             if (k+1)%print_k == 0:
@@ -250,6 +269,25 @@ def train_and_eval(config_file):
                     #current_lr = optimizer.param_groups[0]['lr']
                     experiment.log({'valid loss': valid_loss, })
                                    # 'learning rate': current_lr})
+                            
+                    # Check if validation loss has improved
+                    if valid_loss < best_valid_loss:
+                        best_valid_loss = valid_loss
+                        num_epochs_no_improvement = 0
+                    else:
+                        num_epochs_no_improvement += 1
+                
+                    # Check if early stopping condition is met
+                    if check_for_early_stopping == True:
+                        if num_epochs_no_improvement >= consecutive_epochs:
+                            print(f'Early stopping at epoch {epoch+1} due to no improvement in validation loss for {consecutive_epochs} consecutive epochs')
+                            stop_epoch = epoch+1
+                            stop_early = True 
+
+        #Breaks Epoch iteration to stop training early
+        # will only be true if checking for early stopping is enabled                     
+        if stop_early == True:
+            break
 
         if epoch % train_config['save_checkpoint_freq'] == 0 or (epoch-1) == train_config['num_epochs']: 
                 if os.path.dirname(model_config['model_path']) is not None:
@@ -257,7 +295,8 @@ def train_and_eval(config_file):
                     if not os.path.exists(os.path.dirname(model_config['model_path'])+r'/checkpoints/'):
                         os.mkdir(os.path.dirname(model_config['model_path'])+r'/checkpoints/')
                     torch.save(model,(os.path.dirname(model_config['model_path'])+r'/checkpoints/'+str(epoch)+".pth"))
-
+    
+    stop_epoch = epoch+1
     stop = time.time()
     duration = (stop-start)/60
     print(f'Total train time: {duration}min')
@@ -312,8 +351,10 @@ def train_and_eval(config_file):
     # Adding other metrics to results to pass to csv
     results['valid_loss'] = valid_loss
     results['wandb_id'] = experiment.id
+    print(experiment.id)
     results['start_time'] = experiment.start_time
     results['train_time'] = duration
+    results['stop_epoch'] = stop_epoch
 
     # Save results to temporary file
     with open('/home/lmeyers/ReID_complete/results.pkl','wb') as fi:
