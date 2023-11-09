@@ -4,24 +4,27 @@ model_settings:
   model_class: resnet50_conv3
   num_labels: 8 #num colors (will correct for position)
   latent_dim: 128
-  model_path: /home/lmeyers/ReID_complete/summer_color_detect.pth
+  model_path: /home/lmeyers/ReID_complete/summer_color_detect.pth 
 train_settings:
   learning_rate: 0.001
   num_epochs: 1500
   margin: 0.2
-  pos_weight: 5
-  print_k: 10
+  pos_weight: 7
+  print_k: 100
   save_checkpoint_freq: 100
+  early_stopping: True
+  early_stop_consecutive_epochs: 1000
   gpu: 0
   wandb_project_name: color_detect_summer_data
   wandb_entity_name: meyers_luke_lab
+  wandb_dir_path: ./
   wandb_resume: False
-  checkpoint_to_load: #if resuming
+  checkpoint_to_load:  #if resuming
   wandb_run_id: #if resuming
 data_settings:
   dataset: summer_2023
   split_type: closed
-  fname_col: filename
+  fname_col: filepath
   label_col: color_num
   cropped: False
   crop_top:
@@ -47,3 +50,5 @@ eval_settings:
   n_neighbors: 3
   per_class: True
   conf_matrix: True
+  pickle_file: '/home/lmeyers/ReID_complete/color_detect_experiments/results.pkl'
+  results_file: '/home/lmeyers/ReID_complete/color_detect_experiments/Color_detect_few_shot_expirament_results_tracking.csv'

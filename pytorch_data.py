@@ -19,6 +19,33 @@ from transformers import ViTModel, ViTFeatureExtractor
 ###################################################################################################
 
 
+def prepare_for_triplet_loss(df, label_col, fname_col):
+    # first sort by label value
+    sdf = df.sort_values(label_col)
+    # then extract labels and filenames from df
+    labels = sdf[label_col].values
+    filename = sdf[fname_col].values
+    # then, make sure dataset has even number of samples
+    # given remainder of function, wouldn't it make more sense to ensure each class has an
+    # even number of samples?
+    if labels.shape[0] % 2:
+        labels = labels[1:]
+        filename = filename[1:]
+        
+    # reshape lists into shape (K, 2) for some value K
+    # presumably every row [i,:] will contain 2 samples with the same label (assuming even number of samples per label)
+    pair_labels = labels.reshape((-1, 2))
+    pair_filename = filename.reshape((-1, 2))
+    # now permute the row indices
+    ridx = np.random.permutation(pair_labels.shape[0])
+    # rearrange lists by permuted row indices and flatten back to 1-D arrays
+    labels = pair_labels[ridx].ravel()
+    filename = pair_filename[ridx].ravel()
+    # return as df
+    tdf = pd.DataFrame({"filename":filename, "label":labels})
+    return tdf
+###################################################################################################
+
 
 ###################################################################################################
 # CLASS FOR SINGLE IMAGE INPUT
