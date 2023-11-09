@@ -11,8 +11,8 @@ train_settings:
   margin: 0.2
   print_k: 10
   save_checkpoint_freq: 50
-  early_stopping: False
-  early_stop_consecutive_epochs: 250
+  early_stopping: True
+  early_stop_consecutive_epochs: 1000
   gpu: 1
   wandb_project_name: Summer_data_reid
   wandb_entity_name: meyers_luke_lab
@@ -48,4 +48,5 @@ eval_settings:
   n_neighbors: 3
   per_class: True
   conf_matrix: True
+  pickle_file: '/home/lmeyers/ReID_complete/results.pkl'
   results_file: /home/lmeyers/ReID_complete/few_shot_experiments/Few_shot_expirament_results_tracking.csv

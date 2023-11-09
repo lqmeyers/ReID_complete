@@ -357,7 +357,7 @@ def train_and_eval(config_file):
     results['stop_epoch'] = stop_epoch
 
     # Save results to temporary file
-    with open('/home/lmeyers/ReID_complete/results.pkl','wb') as fi:
+    with open(eval_config['pickle_file'],'wb') as fi:
         pickle.dump(results,fi)
 
     if model_config['model_path'] is not None:
