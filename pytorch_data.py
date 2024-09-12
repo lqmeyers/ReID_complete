@@ -46,6 +46,25 @@ def prepare_for_triplet_loss(df, label_col, fname_col):
     return tdf
 ###################################################################################################
 
+########################## Function for getting embeddings of an entire dataset ##########################
+
+def get_embeddings_w_track(model, dataloader,device):
+    model.eval()
+    embeddings = []
+    labels = []
+    tracks = []
+    with torch.no_grad():
+        for batch in dataloader:
+            outputs = model(batch['image'].to(device))
+            labels += list(batch['label'].detach().cpu().numpy())
+            tracks += list(batch['track'].detach().cpu().numpy())
+            embeddings.append(outputs.detach().cpu().numpy())
+    embeddings = np.vstack(embeddings)
+    labels = np.array(labels)
+    tracks = np.array(tracks)
+    return embeddings, labels, tracks
+
+
 
 ###################################################################################################
 # CLASS FOR SINGLE IMAGE INPUT

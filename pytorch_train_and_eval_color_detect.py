@@ -211,13 +211,14 @@ def train_and_eval(config_file):
 
 
     # Initialize early stopping variables
-    best_valid_loss = 0
+    # Initialize early stopping variables
+    best_valid_loss = 0 #float('inf')
+    best_model = model
     valid_loss = 'Null'
     num_epochs_no_improvement = 0
     check_for_early_stopping = train_config['early_stopping']
     consecutive_epochs = train_config['early_stop_consecutive_epochs']
     stop_early = False
-    
 
     # Train the model
     if verbose:
