@@ -1,0 +1,1 @@
+python pytorch_train_and_eval_reid.py --config_file multicolor_closed_10_2.yml > multicolor_reid_testrun.txt

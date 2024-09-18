@@ -295,14 +295,60 @@ class TrackData(Dataset):
 ###################################################################################################
 # FUNCTION TO GET DATASET
 # 
-def get_dataset(data_config, split):
+def get_dataset(data_config, split,generate_valid=False):
     df = pd.read_csv(data_config['datafiles'][split])
-    dataset = Flowerpatch(df, data_config['fname_col'], data_config['label_col'], data_config['input_size'], split, data_config['aug_p'])
     # only shuffle if train
-    if split == 'train':
-        dataloader = DataLoader(dataset, batch_size=data_config['batch_size'], shuffle=True)
+    if generate_valid == True:
+        if split == 'train':
+
+            #sample percentage of training dataset as validation
+            valid_num_rows = round(data_config['percent_valid']*len(df))
+            valid_rows = df.sample(n=valid_num_rows)
+
+            train_df = df.drop(valid_rows.index)
+            train_num = len(train_df)
+            valid_df = valid_rows
+
+            print(f"Using {valid_num_rows} samples for validation set")
+            print(f"{train_num} total training samples")
+
+            #build dataset and dataloader for modified dataframes
+            train_dataset = Flowerpatch(train_df, data_config['fname_col'],
+                                        data_config['label_col'], data_config['input_size'], split, data_config['aug_p'])
+            train_dataloader = DataLoader(train_dataset, batch_size=data_config['batch_size'], shuffle=True)
+
+            #also build validation dataset
+            valid_dataset = Flowerpatch(valid_df, data_config['fname_col'],
+                                        data_config['label_col'], data_config['input_size'], split, data_config['aug_p'])
+            valid_dataloader = DataLoader(valid_dataset, batch_size=data_config['batch_size'], shuffle=False)
+
+            return (train_dataloader, valid_dataloader)
+        if split == 'test':
+             #sample percentage of training dataset as validation
+            valid_num_rows = round(data_config['percent_valid']*len(df))
+            valid_rows = df.sample(n=valid_num_rows)
+
+            train_df = df.drop(valid_rows.index)
+            train_num = len(train_df)
+            valid_df = valid_rows
+
+            print(f"Using {valid_num_rows} samples for reference set")
+            print(f"{train_num} total test samples")
+
+            #build dataset and dataloader for modified dataframes
+            train_dataset = Flowerpatch(train_df, data_config['fname_col'],
+                                        data_config['label_col'], data_config['input_size'], split, data_config['aug_p'])
+            train_dataloader = DataLoader(train_dataset, batch_size=data_config['batch_size'], shuffle=True)
+
+            #also build validation dataset
+            valid_dataset = Flowerpatch(valid_df, data_config['fname_col'],
+                                        data_config['label_col'], data_config['input_size'], split, data_config['aug_p'])
+            valid_dataloader = DataLoader(valid_dataset, batch_size=data_config['batch_size'], shuffle=False)
+
+            return (train_dataloader, valid_dataloader)
     else:
-        dataloader = DataLoader(dataset, batch_size=32, shuffle=False)
+        dataset = Flowerpatch(df, data_config['fname_col'], data_config['label_col'], data_config['input_size'], split, data_config['aug_p'])
+        dataloader = DataLoader(dataset, batch_size=data_config['batch_size'], shuffle=False)
     return dataloader
 ###################################################################################################
 
