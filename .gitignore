@@ -3,7 +3,9 @@
 *.log
 *.csv
 *.yml
+*latest-run*
 *.yaml
+*run-*
 */wandb/*
 *.wandb
 *conda-environment*
