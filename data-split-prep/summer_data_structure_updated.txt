@@ -1,0 +1,1251 @@
+Num color codes: 64
+For color code blue-blue :
+    Unique Vals in track : [ 83 112 114 116 121 122 162 163 166 171 175 181 186 193 196 197]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 84
+         Unique val in track : [112 114 116 121 122 193 196 197]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 57
+         Unique val in track : [ 83 162 163 166 171 175 181 186]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [10 74]
+For color code blue-green :
+    Unique Vals in track : [ 89  90  92 130 131 169 171 172 176 180 197 198 200 201 209 318]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 120
+         Unique val in track : [130 131 198 200 209]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 198
+         Unique val in track : [ 89  90  92 169 171 172 176 180 197 201 318]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [11 75]
+For color code blue-lillac :
+    Unique Vals in track : [128 130 135 136 173 177 180 185 186 189 195 198 264 269 271 276]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 208
+         Unique val in track : [173 177 180 185 186 189 195 198 269 271 276]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 90
+         Unique val in track : [128 130 135 136 264]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [15 79]
+For color code blue-orange :
+    Unique Vals in track : [117 119 122 167 171 172 220 222 226 238 239 244 247]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 79
+         Unique val in track : [167 171 172]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 175
+         Unique val in track : [117 119 122 220 222 226 238 239 244 247]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [14 78]
+For color code blue-pink :
+    Unique Vals in track : [ 95 103 132 134 135 185 189 206 208 226 232 236]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 105
+         Unique val in track : [132 134 135 226 232 236]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 127
+         Unique val in track : [ 95 103 185 189 206 208]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [12 76]
+For color code blue-red :
+    Unique Vals in track : [137 140 165 206 263 268 271 273 276 283 286 287 289 291 292 294 297 298]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 155
+         Unique val in track : [206 286 289 291]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 296
+         Unique val in track : [137 140 165 263 268 271 273 276 283 287 289 292 294 297 298]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [16 80]
+For color code blue-white :
+    Unique Vals in track : [109 114 144 145 150 154 157 158 160 204 209 212 215 217 223 228 235 244
+ 246 250]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 273
+         Unique val in track : [144 145 150 154 157 158 160 244 246 250]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 198
+         Unique val in track : [109 114 204 209 212 215 217 223 228 235]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [13 77]
+For color code blue-yellow :
+    Unique Vals in track : [ 58  61  62  63  68  73  74  75  77 109 110 111 113 116 117 125 127 132
+ 138 142 156 178 182 184]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 188
+         Unique val in track : [109 110 111 178 182 184]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 372
+         Unique val in track : [ 58  61  62  63  68  73  74  75  77 111 113 116 117 125 127 132 138 142
+ 156]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [ 9 73]
+For color code green-blue :
+    Unique Vals in track : [176 177 179 180 181 221 224 225 227 228 231 232 297 300 304 305 306 307
+ 310 311 312 314 315 316 317 318 319]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 150
+         Unique val in track : [221 224 225 227 228 231 232 300 306 307 312 314 317]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 389
+         Unique val in track : [176 177 179 180 181 297 304 305 306 310 311 312 315 316 317 318 319]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [18 82]
+For color code green-green :
+    Unique Vals in track : [202 246 251 252 253 255 258 262 318 321 323 326 329 331 332 333 334]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 209
+         Unique val in track : [246 251 252 253 255 258 262 318 321]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 232
+         Unique val in track : [202 318 321 323 326 329 331 332 333 334]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [19 83]
+For color code green-lillac :
+    Unique Vals in track : [224 296 297 381 382 386 389 390 395 397 400 403 404 405 406]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 162
+         Unique val in track : [296 297 381 382]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 216
+         Unique val in track : [224 386 389 390 395 397 400 403 404 405 406]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [23 87]
+For color code green-orange :
+    Unique Vals in track : [291 295 359 363 364 366 372 374 375 378 382 385 391 393]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 295
+         Unique val in track : [291 295 359 363 364 366 372 374]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 179
+         Unique val in track : [366 372 375 378 382 385 391 393]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [22 86]
+For color code green-pink :
+    Unique Vals in track : [204 266 267 268 269 336 340 342 343 346 347 348 350]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 164
+         Unique val in track : [266 267 268 269 347 350]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 130
+         Unique val in track : [204 336 340 342 343 346 347 348]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [20 84]
+For color code green-red :
+    Unique Vals in track : [226 392 395 412 415 416 417 420]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 120
+         Unique val in track : [392 395]
+         Unique val in environment : ['in-lab']
+                 In enviroment in-lab bees were shown in passes [nan]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 153
+         Unique val in track : [226 412 415 416 417 420]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [24 88]
+For color code green-white :
+    Unique Vals in track : [207 210 211 274 275 277 282 345 347 353 354 355 356 358 360 364 368 370]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 231
+         Unique val in track : [274 275 277 282 353 355]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 296
+         Unique val in track : [207 210 211 345 347 354 355 356 358 360 364 368 370]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [21 85]
+For color code green-yellow :
+    Unique Vals in track : [140 142 144 167 172 182 183 184 185 192 194 197 209 211 212 213 218 295
+ 296 297 298 302 304 306 307 309 523 525]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 323
+         Unique val in track : [140 142 144 209 211 212 213 218 295 296 297 298]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 291
+         Unique val in track : [167 172 182 183 184 185 192 194 197 302 304 306 307 309 523 525]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [17 81]
+For color code lillac-blue :
+    Unique Vals in track : [120 124 139 142 144 161 164 165 166 178 180 187 196 381 388 389]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 27
+         Unique val in track : [178 180 187 196 381 388 389]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 23
+         Unique val in track : [120 124 139 142 144 161 164 165 166]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 50 114]
+For color code lillac-green :
+    Unique Vals in track : [168 169 171 204 205 206 314 315 317 319 321 453 455 462 464]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 120
+         Unique val in track : [204 205 206 453 455 462 464]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 142
+         Unique val in track : [168 169 171 314 315 317 319 321]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 51 115]
+For color code lillac-lillac :
+    Unique Vals in track : [208 222 224 232 370 373 375 376 382 386 391 392 494 501 505]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 68
+         Unique val in track : [222 224 232 494 501 505]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 100
+         Unique val in track : [208 370 373 375 376 382 386 391 392]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 55 119]
+For color code lillac-orange :
+    Unique Vals in track : [182 184 185 186 188 189 190 191 194 202 204 206 214 215 216 357 359 362
+ 364 485 487]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 76
+         Unique val in track : [214 215 216 485 487]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 208
+         Unique val in track : [182 184 185 186 188 189 190 191 194 202 204 206 357 359 362 364]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 54 118]
+For color code lillac-pink :
+    Unique Vals in track : [172 175 211 213 325 326 327 330 403 409]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 67
+         Unique val in track : [211 213 403 409]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 96
+         Unique val in track : [172 175 325 326 327 330]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 52 116]
+For color code lillac-red :
+    Unique Vals in track : [212 214 233 234 238 397 401 403 404 508 509 511]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 107
+         Unique val in track : [233 234 238 508 509 511]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 96
+         Unique val in track : [212 214 397 401 403 404]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 56 120]
+For color code lillac-white :
+    Unique Vals in track : [177 180 342 347 352 353 414 415 424 430 431 439 444]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 34
+         Unique val in track : [414 415 424 430 431 439 444]
+         Unique val in environment : ['in-lab']
+                 In enviroment in-lab bees were shown in passes [nan]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 87
+         Unique val in track : [177 180 342 347 352 353]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 53 117]
+For color code lillac-yellow :
+    Unique Vals in track : [110 111 113 114 116 117 170 174 175 176 264 266 267 354 356 360 375]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 202
+         Unique val in track : [170 174 175 176 354 356 360 375]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 160
+         Unique val in track : [110 111 113 114 116 117 264 266 267]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 49 113]
+For color code orange-blue :
+    Unique Vals in track : [ 54  55  57  58  59  61  65  66  67  98  99 162 170 171 176 178 182 192
+ 194 197 203]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 139
+         Unique val in track : [ 98  99 178 182 192 194 197 203]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 194
+         Unique val in track : [ 54  55  57  58  59  61  65  66  67 162 170 171 176]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 42 106]
+For color code orange-green :
+    Unique Vals in track : [ 73  74  77 101 102 103 106 179 180 181 186 190 216 219]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 119
+         Unique val in track : [101 102 103 106 216 219]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 145
+         Unique val in track : [ 73  74  77 179 180 181 186 190]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 43 107]
+For color code orange-lillac :
+    Unique Vals in track : [ 95  97  99 154 155 156 231 232 233 238 241 243 299 300]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 88
+         Unique val in track : [154 155 156 299 300]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 146
+         Unique val in track : [ 95  97  99 231 232 233 238 241 243]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 47 111]
+For color code orange-orange :
+    Unique Vals in track : [ 88  89  90  91 148 149 150 221 222 224 225 282 284 288 290 292 298]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 184
+         Unique val in track : [148 149 150 282 284 288 290 292 298]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 144
+         Unique val in track : [ 88  89  90  91 221 222 224 225]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 46 110]
+For color code orange-pink :
+    Unique Vals in track : [ 82 107 109 113 124 126 127 129 131 133 135 197 198 200 223 228 231 234
+ 240 247 257]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 318
+         Unique val in track : [107 109 113 124 126 127 129 131 133 135 223 228 231 234 240 247 257]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 67
+         Unique val in track : [ 82 197 198 200]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 44 108]
+For color code orange-red :
+    Unique Vals in track : [103 108 109 160 164 248 256 260 314 330 332 337]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 93
+         Unique val in track : [160 164 314 330 332 337]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 106
+         Unique val in track : [103 108 109 248 256 260]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 48 112]
+For color code orange-white :
+    Unique Vals in track : [ 84  85  86  87 137 139 146 204 207 262 270 273 279]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 130
+         Unique val in track : [137 139 146 262 270 273 279]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 120
+         Unique val in track : [ 84  85  86  87 204 207]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 45 109]
+For color code orange-yellow :
+    Unique Vals in track : [ 51  52  96  97 151 153 154 157 159 161 166]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 83
+         Unique val in track : [ 96  97 159 161 166]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 63
+         Unique val in track : [ 51  52 151 153 154 157]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 41 105]
+For color code pink-blue :
+    Unique Vals in track : [232 317 319 321 322 324 325 432 436 439 441 444 447 450 452 453 455 456
+ 457 458 459 460 462 467 468 473 477 480 487 491 493 496 498 503 506]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 225
+         Unique val in track : [317 319 321 322 324 325 444 458 459 467 468 477 491 493 496 498 503 506]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 313
+         Unique val in track : [232 432 436 439 441 447 450 452 453 455 456 457 460 462 467 473 480 487]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [26 90]
+For color code pink-green :
+    Unique Vals in track : [234 327 329 335 443 445 446 495 496 497 498 506 507 510 511 516 517 520
+ 526 531 535 551]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 317
+         Unique val in track : [327 329 335 510 511 516 526 531 535 551]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 305
+         Unique val in track : [234 443 445 446 495 496 497 498 506 507 510 511 517 520]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [27 91]
+For color code pink-lillac :
+    Unique Vals in track : [268 356 359 360 486 493 501 561 569 576 578 581 653 655 656 657]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 192
+         Unique val in track : [356 359 360 653 655 656 657]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 215
+         Unique val in track : [268 486 493 501 561 569 576 578 581]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [31 95]
+For color code pink-orange :
+    Unique Vals in track : [262 265 345 350 351 425 426 428 430 436 437 443 444 472 475 556 557 629
+ 640 642 647]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 117
+         Unique val in track : [345 350 351 629 640 642 647]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 302
+         Unique val in track : [262 265 425 426 428 430 436 437 443 444 472 475 556 557]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [30 94]
+For color code pink-pink :
+    Unique Vals in track : [238 338 339 450 455 456 523 529 533 535 553 561 565 566 567 568]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 216
+         Unique val in track : [338 339 553 561 565 566 567 568]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 191
+         Unique val in track : [238 450 455 456 523 529 533 535]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [28 92]
+For color code pink-red :
+    Unique Vals in track : [271 273 280 283 362 363 364 365 507 511 514 517 518 585 588 590 591 598
+ 668 670]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 132
+         Unique val in track : [362 363 364 365 668 670]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 223
+         Unique val in track : [271 273 280 283 507 511 514 517 518 585 588 590 591 598]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [32 96]
+For color code pink-white :
+    Unique Vals in track : [240 247 254 341 343 344 463 465 468 539 541 543 544 545 547 551 555 580
+ 584]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 197
+         Unique val in track : [341 343 344 580 584]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 275
+         Unique val in track : [240 247 254 463 465 468 539 541 543 544 545 547 551 555]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [29 93]
+For color code pink-yellow :
+    Unique Vals in track : [228 229 230 312 313 402 403 418 423 425 430 435 442 443 590 598 602 606
+ 614]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 441
+         Unique val in track : [312 313 402 403 418 423 425 430 435 442 443 590 598 602 606 614]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 49
+         Unique val in track : [228 229 230]
+         Unique val in environment : ['in-lab']
+                 In enviroment in-lab bees were shown in passes [nan]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [25 89]
+For color code red-blue :
+    Unique Vals in track : [222 223 224 227 249 251 256 258 418 420 425 429 431 550 553 555]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 103
+         Unique val in track : [249 251 256 258 550 553 555]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 149
+         Unique val in track : [222 223 224 227 418 420 425 429 431]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 58 122]
+For color code red-green :
+    Unique Vals in track : [232 234 238 270 274 275 278 279 438 443 446 560 564 566 574]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 186
+         Unique val in track : [270 274 275 278 279 560 564 566 574]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 98
+         Unique val in track : [232 234 238 438 443 446]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 59 123]
+For color code red-lillac :
+    Unique Vals in track : [249 453 498 499 500 664 666 667 670]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 29
+         Unique val in track : [664 666 667 670]
+         Unique val in environment : ['in-lab']
+                 In enviroment in-lab bees were shown in passes [nan]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 76
+         Unique val in track : [249 453 498 499 500]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 63 127]
+For color code red-orange :
+    Unique Vals in track : [246 247 248 298 651 653]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 84
+         Unique val in track : [298 651 653]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 72
+         Unique val in track : [246 247 248]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 62 126]
+For color code red-pink :
+    Unique Vals in track : [239 282 283 286 459 460 587 595]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 104
+         Unique val in track : [282 283 286 587 595]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 51
+         Unique val in track : [239 459 460]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 60 124]
+For color code red-red :
+    Unique Vals in track : [254 256 504 506 507 508 509 674 683 684]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 40
+         Unique val in track : [674 683 684]
+         Unique val in environment : ['in-lab']
+                 In enviroment in-lab bees were shown in passes [nan]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 112
+         Unique val in track : [254 256 504 506 507 508 509]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 64 128]
+For color code red-white :
+    Unique Vals in track : [240 245 287 289 472 473 475 477 598]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 85
+         Unique val in track : [287 289 598]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 99
+         Unique val in track : [240 245 472 473 475 477]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 61 125]
+For color code red-yellow :
+    Unique Vals in track : [215 218 241 242 244 246 247 248 405 406 407 411 412 488 492 519 520 521
+ 522 523 534 536 542 543]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 227
+         Unique val in track : [241 242 244 246 247 248 519 520 521 522 523 534 536 542 543]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 150
+         Unique val in track : [215 218 405 406 407 411 412 488 492]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 57 121]
+For color code white-blue :
+    Unique Vals in track : [10 12 13 14 15 21 27 30 33 34 36 41]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 104
+         Unique val in track : [10 14 21 27 34]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 143
+         Unique val in track : [10 12 13 14 15 30 33 36 41]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [34 98]
+For color code white-green :
+    Unique Vals in track : [15 16 17 18 19 20 21 22 23 26 45 46 47 49 54 57]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 138
+         Unique val in track : [22 23 26 45 46 47]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 197
+         Unique val in track : [15 16 17 18 19 20 21 49 54 57]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [35 99]
+For color code white-lillac :
+    Unique Vals in track : [ 35  36  38  40  41  42  44  74  78 121 125 128 129 130 133 147]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 80
+         Unique val in track : [ 74  78 121 128 130 133 147]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 94
+         Unique val in track : [ 35  36  38  40  41  42  44 125 129 130]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 39 103]
+For color code white-orange :
+    Unique Vals in track : [ 34  35  52  53  59  60  61  63  93  97  98  99 102 103 104 107 109 110
+ 112 113 114]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 161
+         Unique val in track : [ 52  53  59  60  61  63  98 103 109 112 113]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 176
+         Unique val in track : [ 34  35  93  97  98  99 102 104 107 110 114]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 38 102]
+For color code white-pink :
+    Unique Vals in track : [23 28 31 48 54 55 56 58 61 63 65 67 68 72]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 185
+         Unique val in track : [28 31 48 54 55 56 58 61]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 102
+         Unique val in track : [23 28 63 65 67 68 72]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 36 100]
+For color code white-red :
+    Unique Vals in track : [ 47  48  82  84  89  90 135 138 139 149 150 156]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 185
+         Unique val in track : [ 82  84  89  90 149 150 156]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 92
+         Unique val in track : [ 47  48 135 138 139]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 40 104]
+For color code white-white :
+    Unique Vals in track : [29 30 31 33 38 41 42 48 75 81 84 86 87 89 90 91 94]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 115
+         Unique val in track : [38 41 42 48 75 87 90 91 94]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 151
+         Unique val in track : [29 30 31 33 81 84 86 89]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [ 37 101]
+For color code white-yellow :
+    Unique Vals in track : [ 0  1  2  3  4  5  6  8  9 14 17]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 82
+         Unique val in track : [ 2  3  4  5  6  8  9 14 17]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['33-64']
+     For batch 2
+         Imgs in this batch 100
+         Unique val in track : [0 1 2 6]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['97-128']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['33-64' '97-128']
+    Unique Vals in reID : [33 97]
+For color code yellow-blue :
+    Unique Vals in track : [ 6  8  9 11 12 15 18 21 25 28]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 89
+         Unique val in track : [ 8  9 11]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 88
+         Unique val in track : [ 6 12 15 18 21 25 28]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [ 2 66]
+For color code yellow-green :
+    Unique Vals in track : [ 10  11  12  23  25  26  32  33  34  36  37  39  44  90  95 100 103]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 185
+         Unique val in track : [ 23  25  26  90  95 100 103]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 254
+         Unique val in track : [10 11 12 32 33 34 36 37 39 44]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [ 3 67]
+For color code yellow-lillac :
+    Unique Vals in track : [ 41  46  50  85  86  87 102 103 159 161 601 604 606 607 609 615 619 624
+ 630]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 26
+         Unique val in track : [102 103 159 161]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 225
+         Unique val in track : [ 41  46  50  85  86  87 601 604 606 607 609 615 619 624 630]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [ 7 71]
+For color code yellow-orange :
+    Unique Vals in track : [ 37  38  72  74  76  79  93  98  99 100 101 103 104]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 68
+         Unique val in track : [76 79 93 99]
+         Unique val in environment : ['outside']
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 180
+         Unique val in track : [ 37  38  72  74  98 100 101 103 104]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [ 6 70]
+For color code yellow-pink :
+    Unique Vals in track : [14 16 45 46 50 52 54 59 62 64 65 66]
+    Unique Vals in batch : [2]
+     For batch 2
+         Imgs in this batch 250
+         Unique val in track : [14 16 45 46 50 52 54 59 62 64 65 66]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['65-96']
+    Unique Vals in reID : [68]
+For color code yellow-red :
+    Unique Vals in track : [ 52  90  91  92  93 101 105 106 114 116 117 119 121 122 169 174]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 108
+         Unique val in track : [105 106 169 174]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 268
+         Unique val in track : [ 52  90  91  92  93 101 114 116 117 119 121 122]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [ 8 72]
+For color code yellow-white :
+    Unique Vals in track : [ 21  28  31  33  34  38  39  41  50  53  55  56  58  64  66  68  69  70
+  71  72  73  74  76  78  79  82 130 131 133]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 343
+         Unique val in track : [ 33  38  39  41  50  53  55  56  66  69  70  71  72 130 131 133]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 363
+         Unique val in track : [21 28 31 34 53 55 58 64 68 69 70 71 73 74 76 78 79 82]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [ 5 69]
+For color code yellow-yellow :
+    Unique Vals in track : [ 1  2  3  4  5  7  8  9 28 29 31 35]
+    Unique Vals in batch : [1 2]
+     For batch 1
+         Imgs in this batch 245
+         Unique val in track : [ 1  5  7 28 29 31 35]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [2.]
+         Unique val in bee_range : ['1-32']
+     For batch 2
+         Imgs in this batch 207
+         Unique val in track : [2 3 4 5 7 8 9]
+         Unique val in environment : ['in-lab' 'outside']
+                 In enviroment in-lab bees were shown in passes [nan]
+                 In enviroment outside bees were shown in passes [1. 2.]
+         Unique val in bee_range : ['65-96']
+    Unique Vals in environment : ['in-lab' 'outside']
+    Unique Vals in bee_range : ['1-32' '65-96']
+    Unique Vals in reID : [ 1 65]
