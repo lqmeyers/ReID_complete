@@ -1,6 +1,10 @@
 *.pth
 *.json
 *.log
+*.csv
+*.yml
+*.yaml
+*/wandb/*
 *.wandb
 *conda-environment*
 */files/config*
