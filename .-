@@ -1,0 +1,1 @@
+python pytorch_train_and_eval_reid.py pytorch_train_and_eval_reid.yml > pytorch_train_and_eval_reid_testrun.txt

@@ -1,2 +1,0 @@
-#!/bin/bash/
-python /home/lmeyers/ReID_complete/pytorch_train_and_eval_color_detect.py /home/lmeyers/ReID_complete/pytorch_train_and_eval_color_detect.yml > /home/lmeyers/ReID_complete/mask_color_detect.txt
