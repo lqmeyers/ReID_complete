@@ -17,7 +17,7 @@ sys.path.insert(0,"../")
 import torch
 from transformers import ViTFeatureExtractor
 from pytorch_data import *
-from pytorch_models import *
+from SCL_reID.models.pytorch_models import *
 from pytorch_metric_learning import losses, miners
 from pytorch_metric_learning.distances import CosineSimilarity
 from sklearn.neighbors import KNeighborsClassifier

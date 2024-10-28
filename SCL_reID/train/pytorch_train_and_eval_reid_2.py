@@ -16,9 +16,9 @@ sys.path.insert(0,"../")
 
 
 import torch
-from transformers import ViTFeatureExtractor
+from transformers import ViTFeatureExtractor, AutoImageProcessor
 from utils.pytorch_data import *
-from utils.pytorch_models import *
+from models.pytorch_models import *
 from pytorch_metric_learning import losses, miners
 from pytorch_metric_learning.distances import CosineSimilarity
 from sklearn.neighbors import KNeighborsClassifier
@@ -156,7 +156,20 @@ def train_and_eval(config_file):
         else:
             train_dataloader = get_dataset(data_config, 'train')
             valid_dataloader = get_dataset(data_config, 'valid')
-
+    
+    #init test dataloaders pre-training for mid run eval
+    if verbose:
+        print('initializing evaluation dataloaders...')
+    if model_config['model_class'].startswith('swin3d'):
+        reference_dataloader = get_track_dataset(data_config, 'reference')
+        test_dataloader = get_track_dataset(data_config, 'query')
+    else:
+        if data_config['sample_reference'] == True:
+            test_dataloader, reference_dataloader = get_dataset(data_config, 'test',generate_valid=True) #generate valid automatically
+        else:
+            reference_dataloader = get_dataset(data_config, 'reference')
+            test_dataloader = get_dataset(data_config, 'query')
+    
     if verbose:
         try:
             batch = next(iter(train_dataloader))
@@ -175,21 +188,19 @@ def train_and_eval(config_file):
     # load latest saved checkpoint if resuming a failed run
     if resume_training == True: 
         saved = os.listdir(os.path.dirname(model_config['model_path'])+r'/checkpoints/')
-        check_array = []
-        for f in saved:
-            check_array.append(f[:-4])
-        check_array = np.array(check_array,dtype=np.int64)
         #most_recent_epoch = np.max(check_array) #find most recent checkpoint
         most_recent_epoch = train_config['checkpoint_to_load'] # make this part of yml
         print(f'Resuming training from saved epoch: {most_recent_epoch}')
-        most_recent_model = os.path.dirname(model_config['model_path'])+r'/checkpoints/'+str(most_recent_epoch)+'.pth'
-        print(f'Loading saved checkpoint model {most_recent_model}')
+        most_recent_model = model_config['model_path']#+r'/checkpoints/'+str(most_recent_epoch)+'.pth'
+        print(f'Loading saved model {most_recent_model}')
         model = torch.load(most_recent_model)
+        model.train()
     
-    optimizer = torch.optim.Adam(model.parameters(), lr=train_config['learning_rate'])
-    # Initialize optimizer and scheduler
+    
+    # Training Hyperparams 
+    
     #scheduler = lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', patience=10, factor=0.75, verbose=True,min_lr = 1e-5)
-
+    optimizer = torch.optim.Adam(model.parameters(), lr=train_config['learning_rate'])
     #miner = miners.MultiSimilarityMiner()
     miner = miners.TripletMarginMiner(margin=train_config['margin'], type_of_triplets="semihard", distance = CosineSimilarity())
     miner_type = "semihard"
@@ -202,13 +213,19 @@ def train_and_eval(config_file):
         if verbose:
             print('Getting ViT feature extractor...')
         model_name = 'google/vit-base-patch16-224-in21k'
-        feature_extractor = ViTFeatureExtractor.from_pretrained(model_name)
+        feature_extractor = AutoImageProcessor.from_pretrained(model_name)
+        #if using ViT backbone make sure frozen
+        #model.vit.requires_grad_(False) #extra underscore works for whole modules 
+        
     else:
         feature_extractor = None
 
+    # Set device and send to cuda
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     if verbose:
         print(f'Found device: {device}')
+    
+   
     model.to(device)
 
     # if resuming training set epoch number
@@ -221,7 +238,7 @@ def train_and_eval(config_file):
         stop_epoch = 0
 
     # Initialize early stopping variables
-    best_valid_loss = float('inf')
+    best_loss = float('inf')
     best_model = model
     valid_loss = 'Null'
     num_epochs_no_improvement = 0
@@ -240,6 +257,8 @@ def train_and_eval(config_file):
         for k, data in enumerate(train_dataloader):
             # get images
             if feature_extractor is None:
+                if verbose & epoch == 0 & k == 0:
+                    print("No tokenizer being used, not transformer model")
                 images = data['image'].to(device)
             else:
                 # must change image back to PIL format for ViT feature extractor
@@ -249,13 +268,17 @@ def train_and_eval(config_file):
             # get labels
             labels = data['label'].to(device)
 
+            #zero the parameter gradients
             optimizer.zero_grad()
+
+            #pass through the model 
             outputs = model(images)
 
             # get semi-hard triplets
             triplet_pairs = miner(outputs, labels)
-
             #hard_pairs = miner(outputs, labels)
+
+            #calculate loss and step gradients
             loss = loss_fn(outputs, labels, triplet_pairs)
             loss.backward()
             optimizer.step()
@@ -269,7 +292,8 @@ def train_and_eval(config_file):
             })
 
 #             if (k+1)%print_k == 0:
-
+        train_loss = running_loss/print_k
+        
         if epoch % train_config['save_checkpoint_freq'] == 0 or (epoch+1) == train_config['num_epochs']: 
                 if os.path.dirname(model_config['model_path']) is not None:
                     print('Saving checkpoint',epoch)
@@ -279,16 +303,23 @@ def train_and_eval(config_file):
                     
         with torch.no_grad():
             valid_outputs, valid_labels, valid_loss = get_embeddings(model, valid_dataloader, loss_fn, miner, device, feature_extractor)
+            
             print(f'[{epoch + 1}, {k + 1:5d}] train_loss: {running_loss/print_k:.4f} | val_loss: {valid_loss:.4f}')
             running_loss=0.0
             #scheduler.step(valid_loss)
             #current_lr = optimizer.param_groups[0]['lr']
             experiment.log({'valid loss': valid_loss, })
                            # 'learning rate': current_lr})
-
+            
+            #assign loss to eval for early stopping
+            if train_config["early_stopping_metric"] == "train_loss":
+                metric_loss = train_loss
+            else:
+                metric_loss = valid_loss
+                
             # Check if validation loss has improved
-            if valid_loss < best_valid_loss:
-                best_valid_loss = valid_loss
+            if metric_loss < best_loss:
+                best_loss = valid_loss
                 best_model = model
                 num_epochs_no_improvement = 0
             else:
@@ -297,10 +328,22 @@ def train_and_eval(config_file):
             # Check if early stopping condition is met
             if check_for_early_stopping == True:
                 if num_epochs_no_improvement >= consecutive_epochs:
-                    print(f'Early stopping at epoch {epoch+1} due to no improvement in validation loss for {consecutive_epochs} consecutive epochs')
+                    print(f'Early stopping at epoch {epoch+1} due to no improvement in {train_config["early_stopping_metric"]} for {consecutive_epochs} consecutive epochs')
                     stop_epoch = epoch+1
                     stop_early = True 
-
+            
+    #       #eval on test set mid training for efficient testing
+            if (epoch >= 10) and (epoch%2 == 0): 
+                print(f"evaluating on test set after {epoch + 1} epochs")
+                reference_embeddings, reference_labels, reference_loss = get_embeddings(model, reference_dataloader, loss_fn, miner, device, feature_extractor)
+                test_embeddings, test_labels, test_loss = get_embeddings(model, test_dataloader, loss_fn, miner, device, feature_extractor)
+                print(f'Reference (or Train) Loss: {reference_loss:.4f}')
+                print('Reference size:',reference_embeddings.shape)
+                print(f'Test (or Query) Loss: {test_loss:.4f}')
+                print('Test (or Query) size:',test_embeddings.shape)
+                results = knn_evaluation(reference_embeddings, reference_labels, test_embeddings, test_labels, 
+                                eval_config['n_neighbors'], False, False)
+              
         #Breaks Epoch iteration to stop training early
         # will only be true if checking for early stopping is enabled                     
         if stop_early == True:
@@ -323,15 +366,7 @@ def train_and_eval(config_file):
     # load "query" for testing
     #       - Closed Setting: test set
     #       - Open SettingL the actual query set
-     if model_config['model_class'].startswith('swin3d'):
-        reference_dataloader = get_track_dataset(data_config, 'reference')
-        test_dataloader = get_track_dataset(data_config, 'query')
-    else:
-        if data_config['sample_reference'] == True:
-            test_dataloader, reference_dataloader = get_dataset(data_config, 'test',generate_valid=True) #generate valid automatically
-        else:
-            reference_dataloader = get_dataset(data_config, 'reference')
-            test_dataloader = get_dataset(data_config, 'query')
+    
     if verbose:
         print('generating embeddings')
 
