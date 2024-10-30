@@ -7,6 +7,7 @@ import argparse
 import yaml
 import pickle
 from datetime import datetime
+import random
 import gc
 import os
 import wandb
@@ -57,12 +58,13 @@ def get_embeddings(model, dataloader, loss_fn, miner, device, feature_extractor=
     return embeddings, all_labels, loss
 ##########################################################################################
 
-
 #########################################################################################
 # FUNCTION TO PERFORM KNN EVALUATION
 #
-def knn_evaluation(train_images, train_labels, test_images, test_labels, n_neighbors, per_class=True, conf_matrix=True):
+def knn_evaluation(train_images, train_labels, test_images, test_labels, n_neighbors, per_class=True, conf_matrix=True, random_state=101):
     # BUILD KNN MODEL AND PREDICT
+    np.random.seed(random_state)
+    random.seed(random_state)
     results = {}
     print(f"Training kNN classifier with k=1")
     my_knn = KNeighborsClassifier(n_neighbors=1, metric='cosine')
@@ -102,6 +104,10 @@ def knn_evaluation(train_images, train_labels, test_images, test_labels, n_neigh
 #########################################################################################
 
 
+    
+    
+    
+
 def train_and_eval(config_file):
     
     try:
@@ -118,17 +124,16 @@ def train_and_eval(config_file):
         print('Exception msg:',e)
         return -1
     
-    resume_training = train_config['resume_from_saved']
-    #initialize wandb logging
+    resume_training = train_config["resume_from_saved"]
     if resume_training == True: 
-        if train_config['wandb_run_id'] is not None:
+        if rain_config['wandb_run_id'] is not None:
             experiment = wandb.init(project= train_config["wandb_project_name"],entity=train_config['wandb_entity_name'],resume=True,id=train_config['wandb_run_id'],dir=train_config['wandb_dir_path'])
         else:
-            experiment = wandb.init(project= train_config["wandb_project_name"],entity=train_config['wandb_entity_name'],dir=train_config['wandb_dir_path'])
+            experiment = wandb.init(project=train_config["wandb_project_name"],entity=train_config['wandb_entity_name'],dir=train_config['wandb_dir_path'])
     else:
-        experiment = wandb.init(project= train_config["wandb_project_name"],entity=train_config['wandb_entity_name'],dir=train_config['wandb_dir_path'])
-    
-    
+        experiment = wandb.init(project=train_config["wandb_project_name"],entity=train_config['wandb_entity_name'],dir=train_config['wandb_dir_path'])
+
+
     if verbose:
             now = datetime.now() # current date and time
             dt = now.strftime("%y-%m-%d %H:%M")
@@ -139,7 +144,7 @@ def train_and_eval(config_file):
             print(train_config)
             print("Model Settings:")
             print(model_config)
-    
+        
     #SET GPU TO USE
     os.environ["CUDA_VISIBLE_DEVICES"]=str(train_config['gpu'])
     if verbose:
@@ -206,8 +211,6 @@ def train_and_eval(config_file):
     
     
     # Training Hyperparams 
-    
-   
     optimizer = torch.optim.Adam(model.parameters(), lr=train_config['learning_rate'])
     scheduler = lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', patience=10, factor=0.85, verbose=True,min_lr = 1e-5)
     #miner = miners.MultiSimilarityMiner()
@@ -224,9 +227,9 @@ def train_and_eval(config_file):
         model_name = 'google/vit-base-patch16-224-in21k'
         feature_extractor = AutoImageProcessor.from_pretrained(model_name)
         #Frozen model first to finetune head
-        #if verbose:
-           # print('Freezing Backbone weights...')
-        #model.vit.requires_grad_(False) #extra underscore works for whole modules 
+        if verbose:
+           print('Freezing Backbone weights...')
+        model.vit.requires_grad_(False) #extra underscore works for whole modules 
     
     elif model_config['model_class'].startswith('clip'):
         if verbose:
@@ -261,7 +264,7 @@ def train_and_eval(config_file):
     check_for_early_stopping = train_config['early_stopping']
     consecutive_epochs = train_config['early_stop_consecutive_epochs']
     finetune_epochs = train_config['finetune_epochs']
-    mid_train_eval = eval_config['mid_train_eval']
+    mid_train_eval = False
     unfreeze_epoch = None
     stop_early = False
     model_frozen = False 
@@ -357,7 +360,7 @@ def train_and_eval(config_file):
                 optimizer.lr = 1e-4
                 model_frozen = False
                 unfreeze_epoch = epoch+1
-                mid_train_eval == True
+                mid_train_eval == eval_config['mid_train_eval']
                 print(f'Unfreezing backbone at {epoch+1} due to no improvement in {train_config["early_stopping_metric"]} for {consecutive_epochs} consecutive epochs')
                 print(f'Will continue to train for {finetune_epochs} with learning rate of {optimizer.lr} .')
                 
@@ -376,7 +379,7 @@ def train_and_eval(config_file):
                     stop_early = True 
             
     #       #eval on test set mid training for efficient testing
-            if (mid_train_eval == True) and (epoch%5 == 0): 
+            if (mid_train_eval == True) and (epoch%eval_config["eval_every_epoch"] == 0): 
                 print(f"evaluating on test set after {epoch + 1} epochs")
                 print(f"using model from epoch {model_epoch} with loss: {best_loss}")
                 reference_embeddings, reference_labels, reference_loss = get_embeddings(model, reference_dataloader, loss_fn, miner, device, feature_extractor)
@@ -472,6 +475,9 @@ def train_and_eval(config_file):
     print('Finished')
     wandb.finish()
 
+    
+
+    
 print("beginning execution")
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

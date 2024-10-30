@@ -116,13 +116,15 @@ def train_and_eval(config_file):
         print('Exception msg:',e)
         return -1
     
-    resume_training = train_config['wandb_resume']
-    #initialize wandb logging
+    resume_training = train_config["resume_from_saved"]
     if resume_training == True: 
-        experiment = wandb.init(project= train_config["wandb_project_name"],entity=train_config['wandb_entity_name'],resume=True,id=train_config['wandb_run_id'],dir=train_config['wandb_dir_path'])
+        if rain_config['wandb_run_id'] is not None:
+            experiment = wandb.init(project= train_config["wandb_project_name"],entity=train_config['wandb_entity_name'],resume=True,id=train_config['wandb_run_id'],dir=train_config['wandb_dir_path'])
+        else:
+            experiment = wandb.init(project=train_config["wandb_project_name"],entity=train_config['wandb_entity_name'],dir=train_config['wandb_dir_path'])
     else:
-        experiment = wandb.init(project= train_config["wandb_project_name"],entity=train_config['wandb_entity_name'],dir=train_config['wandb_dir_path'])
-    
+        experiment = wandb.init(project=train_config["wandb_project_name"],entity=train_config['wandb_entity_name'],dir=train_config['wandb_dir_path'])
+
     
     if verbose:
             now = datetime.now() # current date and time
@@ -134,6 +136,7 @@ def train_and_eval(config_file):
             print(train_config)
             print("Model Settings:")
             print(model_config)
+    
     
     #SET GPU TO USE
     os.environ["CUDA_VISIBLE_DEVICES"]=str(train_config['gpu'])
@@ -185,18 +188,6 @@ def train_and_eval(config_file):
     model = build_model(model_config)
 
     
-    # load latest saved checkpoint if resuming a failed run
-    if resume_training == True: 
-        saved = os.listdir(os.path.dirname(model_config['model_path'])+r'/checkpoints/')
-        #most_recent_epoch = np.max(check_array) #find most recent checkpoint
-        most_recent_epoch = train_config['checkpoint_to_load'] # make this part of yml
-        print(f'Resuming training from saved epoch: {most_recent_epoch}')
-        most_recent_model = model_config['model_path']#+r'/checkpoints/'+str(most_recent_epoch)+'.pth'
-        print(f'Loading saved model {most_recent_model}')
-        model = torch.load(most_recent_model)
-        model.train()
-    
-    
     # Training Hyperparams 
     
     #scheduler = lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', patience=10, factor=0.75, verbose=True,min_lr = 1e-5)
@@ -220,12 +211,6 @@ def train_and_eval(config_file):
     else:
         feature_extractor = None
 
-    # Set device and send to cuda
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    if verbose:
-        print(f'Found device: {device}')
-    
-   
     model.to(device)
 
     # if resuming training set epoch number
