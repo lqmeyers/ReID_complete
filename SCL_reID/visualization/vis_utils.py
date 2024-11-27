@@ -124,6 +124,38 @@ def display_histogram(w, bins=50, color='blue'):
     # Show the plot
     plt.show()
 
+def display_rgba_histogram(w_rgba, bins=50, color='blue'):
+    """
+    Display a histogram of the values in the weight layer.
+    
+    Parameters:
+    - w: 2D array-like object containing the weights.
+    - bins: Number of bins for the histogram.
+    - color: Color of the histogram bars.
+    """
+    
+    if len(w.shape) <= 2:
+        height, width = w.shape
+        print("Weight layer has shape", w.shape)
+    else:
+        print("Weight layer is not two-dimensional")
+        return
+    
+    # Flatten the 2D array to 1D for histogram plotting
+    w_flat = w.flatten()
+    
+    # Plot the histogram
+    plt.figure()
+    plt.hist(w_flat, bins=bins, color=color, alpha=0.75)
+    
+    # Add labels and title
+    plt.xlabel('Weight values')
+    plt.ylabel('Frequency')
+    plt.title('Histogram of Weight Layer Values')
+    
+    # Show the plot
+    plt.show()
+
 def show_conf_matrix(cm,truth_labels,pred_labels):
     '''
     Plot a confusion matrix of a sklearn.metrics import confusion_matrix object

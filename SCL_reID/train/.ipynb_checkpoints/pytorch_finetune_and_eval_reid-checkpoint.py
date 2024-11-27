@@ -126,7 +126,7 @@ def train_and_eval(config_file):
     
     resume_training = train_config["resume_from_saved"]
     if resume_training == True: 
-        if rain_config['wandb_run_id'] is not None:
+        if train_config['wandb_run_id'] is not None:
             experiment = wandb.init(project= train_config["wandb_project_name"],entity=train_config['wandb_entity_name'],resume=True,id=train_config['wandb_run_id'],dir=train_config['wandb_dir_path'])
         else:
             experiment = wandb.init(project=train_config["wandb_project_name"],entity=train_config['wandb_entity_name'],dir=train_config['wandb_dir_path'])
@@ -220,6 +220,7 @@ def train_and_eval(config_file):
     if verbose:
         print('Loss:',loss_fn)
 
+    ################################# TODO containerize this
     # load VIT feature extractor if needed
     if model_config['model_class'].startswith('vit'):
         if verbose:
@@ -230,21 +231,27 @@ def train_and_eval(config_file):
         if verbose:
            print('Freezing Backbone weights...')
         model.vit.requires_grad_(False) #extra underscore works for whole modules 
+        model_frozen = True
     
     elif model_config['model_class'].startswith('clip'):
         if verbose:
             print('Getting clip feature extractor...')
         feature_extractor = CLIPFeatureExtractor()
         model.bio_model.requires_grad_(False)
+        model_frozen = True
     else:
         feature_extractor = None
+        model_frozen = False
 
+    ###########################################
+
+    ##########################################################
     # Set device and send to cuda
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     if verbose:
         print(f'Found device: {device}')
     
-   
+    ######################################
     model.to(device)
 
     # if resuming training set epoch number
@@ -267,8 +274,7 @@ def train_and_eval(config_file):
     mid_train_eval = False
     unfreeze_epoch = None
     stop_early = False
-    model_frozen = False 
-
+    
     # Train the model
     if verbose:
         print('Training model head...')
@@ -331,8 +337,7 @@ def train_and_eval(config_file):
             running_loss=0.0
             #scheduler.step(valid_loss)
             #current_lr = optimizer.param_groups[0]['lr']
-            experiment.log({'valid loss': valid_loss, })
-                           # 'learning rate': current_lr})
+            experiment.log({'valid loss': valid_loss})
             
             #assign loss to eval for early stopping
             if train_config["early_stopping_metric"] == "train_loss":
@@ -356,15 +361,15 @@ def train_and_eval(config_file):
                 elif model_config['model_class'].startswith('clip'):
                     model.bio_model.requires_grad_(True)
                 num_epochs_no_improvement = 0
-                consecutive_epochs = consecutive_epochs*2
+                best_loss = float('inf') # reset best model
+                consecutive_epochs = consecutive_epochs*3
                 optimizer.lr = 1e-4
                 model_frozen = False
                 unfreeze_epoch = epoch+1
                 mid_train_eval == eval_config['mid_train_eval']
                 print(f'Unfreezing backbone at {epoch+1} due to no improvement in {train_config["early_stopping_metric"]} for {consecutive_epochs} consecutive epochs')
                 print(f'Will continue to train for {finetune_epochs} with learning rate of {optimizer.lr} .')
-                
-                
+                                
             #check if number of finetuning epochs has been exceeded
             if model_frozen == False:
                 if epoch+1 >= ((epoch+1) + finetune_epochs):
@@ -397,9 +402,10 @@ def train_and_eval(config_file):
             break
 
     #---- Perform eval with best model---------
-    model = best_model
-    if verbose:
-        print(f"using epoch {model_epoch} with loss {best_loss} for eval")
+    #model = best_model
+    print("using latest model instead of best")
+    #if verbose:
+        #print(f"using epoch {model_epoch} with loss {best_loss} for eval")
     stop_epoch = epoch+1
     stop = time.time()
     duration = (stop-start)/60
