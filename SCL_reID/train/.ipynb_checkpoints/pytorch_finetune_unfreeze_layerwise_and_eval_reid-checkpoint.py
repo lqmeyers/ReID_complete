@@ -235,8 +235,9 @@ def train_and_eval(config_file):
         if verbose:
             print('Getting clip feature extractor...')
         feature_extractor = CLIPFeatureExtractor()
-        model.bio_model.requires_grad_(False) #freeze all
+        model.vit.requires_grad_(False) #freeze all
         model_frozen = True
+        all_layer_num = -1*(len(model.vit.transformer.resblocks)-1)
     else:
         feature_extractor = None
         model_frozen = False
@@ -268,6 +269,7 @@ def train_and_eval(config_file):
     num_epochs_no_improvement = 0
     check_for_early_stopping = train_config['early_stopping']
     consecutive_epochs = train_config['early_stop_consecutive_epochs']
+    layer_patience = train_config['unfreeze_patience_epochs']
     finetune_epochs = train_config['finetune_epochs']
     mid_train_eval = False
     unfreeze_epoch = None
@@ -356,31 +358,36 @@ def train_and_eval(config_file):
 
             #use early stopping protocol to unfreeze model and finetune more
             if (num_epochs_no_improvement >= consecutive_epochs) and (model_frozen == True):
+                print(f'Unfreezing pooler and last layer of backbone at {epoch+1} due to no improvement in {train_config["early_stopping_metric"]} for {consecutive_epochs} consecutive epochs')
                 if model_config['model_class'].startswith('vit'):
                     model.vit.encoder.layer[-1].requires_grad_(True) #unfreeze last layer
                     model.vit.pooler.requires_grad_(True) # unfreeze pooler first time
                 elif model_config['model_class'].startswith('clip'):
-                    model.bio_model.requires_grad_(True)
+                    model.vit.transformer.resblocks[-1].requires_grad_(True)
                 num_epochs_no_improvement = 0
                 best_loss = float('inf') # reset best model
-                consecutive_epochs = consecutive_epochs//2 #shorten patience for layerwise
+                consecutive_epochs = layer_patience#consecutive_epochs//2 #shorten patience for layerwise
                 optimizer.param_groups[0]['lr'] = 1e-4
                 unfrozen_layer_num -= 1
                 model_frozen = False
                 unfreeze_epoch = epoch+1
                 mid_train_eval = eval_config['mid_train_eval']
-                print(f'Unfreezing pooler and last layer of backbone at {epoch+1} due to no improvement in {train_config["early_stopping_metric"]} for {consecutive_epochs} consecutive epochs')
                 print(f'Will continue to train for {finetune_epochs} with learning rate of {optimizer.param_groups[0]["lr"]} .')
                 
             #if model has plateau'd and is partly unfozen, unfreeze another layer
             if (num_epochs_no_improvement >= consecutive_epochs) and (all_layer_num != unfrozen_layer_num):
-                  if model_config['model_class'].startswith('vit'):
-                    unfrozen_layer_num -= 1
+                unfrozen_layer_num -= 1
+                if model_config['model_class'].startswith('vit'):  
                     model.vit.encoder.layer[unfrozen_layer_num].requires_grad_(True) #unfreeze successive layer
-                    print(f'Unfreezing layer {unfrozen_layer_num} of backbone at {epoch+1} due to no improvement in {train_config["early_stopping_metric"]} for {consecutive_epochs} consecutive epochs')
-                    if unfrozen_layer_num <= (all_layer_num /2): #slow down learning upon unfreezing early layers
-                        optimizer.param_groups[0]['lr'] = 1e-5
-                    num_epochs_no_improvement = 0 #reset check for early stopping but not best model
+                elif model_config['model_class'].startswith('clip'):
+                    model.vit.transformer.resblocks[unfrozen_layer_num].requires_grad_(True)
+                print(f'Unfreezing layer {unfrozen_layer_num} of backbone at {epoch+1} due to no improvement in {train_config["early_stopping_metric"]} for {consecutive_epochs} consecutive epochs')
+                
+                if unfrozen_layer_num <= (all_layer_num /3): #slow down learning upon unfreezing early layers
+                    optimizer.param_groups[0]['lr'] = 1e-5
+                elif unfrozen_layer_num <= ((all_layer_num /3)*2):
+                    optimizer.param_groups[0]['lr'] = 5e-5
+                num_epochs_no_improvement = 0 #reset check for early stopping but not best model
                                 
             #check if number of finetuning epochs has been exceeded
             if (model_frozen == False):

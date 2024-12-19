@@ -4,6 +4,22 @@ import numpy as np
 import seaborn as sns
 
 
+def plot_images_from_dict_list(images_dict):
+    n_rows = len(images_dict)
+    n_cols = 2
+
+    fig, axes = plt.subplots(n_rows, n_cols, figsize=(10, 5 * n_rows))
+
+    # Plot images
+    for idx, (key, image_paths) in enumerate(images_dict.items()):
+        for col_idx, image_path in enumerate(image_paths):
+            img = Image.open(image_path)
+            axes[idx][col_idx].imshow(img)
+            #axes[idx][col_idx].set_title(f"{key} Image {col_idx + 1}")
+            axes[idx][col_idx].axis('off')
+
+    plt.tight_layout
+
 def display_ind_barcode(vector,cmap='gray',figsize=10):
     # Normalize vector values to range [0, 1]
     #normalized_vector = (vector - vector.min()) / (vector.max() - vector.min())

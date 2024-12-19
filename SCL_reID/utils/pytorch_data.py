@@ -839,7 +839,7 @@ def get_dataset(data_config, split,generate_valid=False):
             #build dataset and dataloader for modified dataframes
             train_dataset = Flowerpatch(train_df, data_config['fname_col'],
                                         data_config['label_col'], data_config['input_size'], split, data_config['aug_p'])
-            train_dataloader = DataLoader(train_dataset, batch_size=data_config['batch_size'], shuffle=True)
+            train_dataloader = DataLoader(train_dataset, batch_size=data_config['batch_size'], shuffle=False)
 
             #also build validation dataset
             valid_dataset = Flowerpatch(valid_df, data_config['fname_col'],

@@ -9,6 +9,7 @@ import sys
 sys.path.insert(0, '../')
 from models.pytorch_resnet50_conv3 import resnet50_convstage3
 from models.pytorch_resnet50 import resnet50
+import open_clip
 
 ###################################################################################################
 #
@@ -72,11 +73,12 @@ class CLIPForReID(nn.Module):
     def __init__(self, latent_dim=128,load_saved=False,model_path=None):
         super(CLIPForReID, self).__init__()
         self.bio_model, preprocess_train, preprocess_val = open_clip.create_model_and_transforms('hf-hub:imageomics/bioclip')
+        self.vit = self.bio_model.visual
         #clip_flattener = CLIPFeatureExtractor()
     
         #"""
         self.reid = nn.Sequential(#nn.Dropout(0.2),
-                                  nn.Linear(self.bio_model.visual.output_dim, latent_dim),         
+                                  nn.Linear(self.vit.output_dim, latent_dim),      #supposedly this already has pooling in it   
                                   #nn.Dropout(0.2))
         )
         #"""
@@ -85,9 +87,8 @@ class CLIPForReID(nn.Module):
         # self.fc2 = nn.Linear(self.vit.config.hidden_size, latent_dim)
 
     def forward(self, pixel_values):
-        outputs = self.bio_model(pixel_values)
-        visual = outputs[0]
-        logits = visual[0]
+        outputs = self.vit(pixel_values)
+        logits = outputs[0]
         # hidden = F.relu(self.fc1(outputs['pooler_output']))
         # embedding = self.fc2(hidden)
         embedding = self.reid(logits)
